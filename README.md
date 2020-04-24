@@ -23,3 +23,6 @@ Lancement de l'application :
 
   - identifiant : root
   - mot de passe : root
+
+Swagger :
+Lorsque l'application est lancée aller sur : http://localhost:8080/swagger-ui.html#/
