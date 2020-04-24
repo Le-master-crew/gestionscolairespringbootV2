@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/data/repository
+        http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd"
+		default-autowire="byName">
+
+	<!-- Etape 0 : Configuration Annotations -->
+
+	<context:annotation-config />
+
+	<!-- Etape 1 : Base de donnees = PPC + dataSource-->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/db.properties</value>
+			</list>
+		</property>
+	</bean>
+        
+        <bean id="EleveService" class="eu.ensup.SERVICE.EleveService" autowire="byType"></bean>
+
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	
+	<!-- Etape 2 : EntityManager -->
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="eu.ensup.BO" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="MYSQL" />
+				<property name="generateDdl" value="true" />
+			</bean>
+		</property>
+	</bean>
+
+
+
+		<!-- Etape 3 : TransactionManager -->
+
+		<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+
+	<!-- Etape 4 : specifier ou sont les interfaces -->
+		<jpa:repositories base-package="eu.ensup.DAO" />
+
+
+
+</beans>
