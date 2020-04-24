@@ -17,4 +17,5 @@ class GestionscolairespringbootApplicationTests {
 	void controllerNotNull() {
 		assertThat(controller).isNotNull();
 	}
+	
 }
