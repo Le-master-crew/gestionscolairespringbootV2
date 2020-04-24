@@ -105,7 +105,7 @@ public class StaticController {
 	@RequestMapping("/listeCours")
 	public String listeCours(Model model) {
 		System.out.println("entree dans la methode listeEtudiants");
-		// model.addAttribute("listeCours", ietudiantservice.getAllCours());
+		//model.addAttribute("listeCours", ietudiantservice.getAllCours());
 		return "listeCours";
 	}
 
@@ -131,9 +131,9 @@ public class StaticController {
 	 * redirige vers le formulaire de connexion
 	 * @return
 	 */
-<<<<<<< HEAD
-	@GetMapping({"/","getFormLogin"})
-=======
+
+	
+
 	@ApiOperation(value = "Vue de la page login, vue par dÃ©faut lors du lancement de l'applicaiton")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
@@ -141,8 +141,7 @@ public class StaticController {
 		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
 		})
-	@GetMapping("/")
->>>>>>> branch 'master' of https://github.com/Le-master-crew/gestionscolairespringboot.git
+	@GetMapping({"/","getFormLogin"})
 	public String home() {
 		
 		return "getFormLogin";
@@ -207,7 +206,7 @@ public class StaticController {
 		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
 		})
-	@PostMapping("/saveEtudiant") // it only support port method
+	@PostMapping("/saveEtudiant")
 	public String saveEtudiant(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("telephone") int telephone, @RequestParam("adresse") String adresse,
 			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Etudiant etudiant,
@@ -281,7 +280,7 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Lire un étudiant")
+	@ApiOperation(value = "Lire un ï¿½tudiant")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -298,7 +297,7 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la modification d'un Ã©tudiant 
 	 * @return
 	 */
-	@ApiOperation(value = "Recherche un étudiant pour modifier celui-ci")
+	@ApiOperation(value = "Recherche un ï¿½tudiant pour modifier celui-ci")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -317,7 +316,7 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Lire un étudiant modifié")
+	@ApiOperation(value = "Lire un ï¿½tudiant modifiï¿½")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -344,7 +343,7 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
-	@ApiOperation(value = "Modifier un étudiant")
+	@ApiOperation(value = "Modifier un ï¿½tudiant")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -370,7 +369,7 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la suppression d'un Ã©tudiant
 	 * @return 
 	 */
-	@ApiOperation(value = "Rechercher un étudiant pour supprimer celui-ci")
+	@ApiOperation(value = "Rechercher un ï¿½tudiant pour supprimer celui-ci")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -390,7 +389,7 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
-	@ApiOperation(value = "Supprimer un étudiant")
+	@ApiOperation(value = "Supprimer un ï¿½tudiant")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
 		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
