@@ -265,7 +265,7 @@ public class StaticController {
 
 	/**
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la suppression d'un étudiant
-	 * @return
+	 * @return 
 	 */
 	@GetMapping("getFormSupprimerEtudiant")
 	public String getFormSupprimerEtudiant() {
