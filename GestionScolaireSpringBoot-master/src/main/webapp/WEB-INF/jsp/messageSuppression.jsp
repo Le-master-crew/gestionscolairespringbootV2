@@ -43,7 +43,7 @@
 	  <h1>Suppression étudiant</h1>
 	</div>
 	
-	<meta http-equiv="refresh" content="3;URL=accueil.jsp">
+	<meta http-equiv="refresh" content="3;URL=/listeEtudiants">
 	<div class="container">
         <div class="card card-container">
             <h4>L'étudiant a bien été supprimé</h4>
