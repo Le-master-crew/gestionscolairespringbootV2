@@ -279,6 +279,13 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
+	@ApiOperation(value = "Lire un étudiant")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@PostMapping("/readEtudiant")
 	public String readEtudiant(@RequestParam("idEtudiant") int id, Model model) {
 		model.addAttribute("etudiant", ietudiantservice.getById(id));
@@ -289,6 +296,13 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la modification d'un Ã©tudiant 
 	 * @return
 	 */
+	@ApiOperation(value = "Recherche un étudiant pour modifier celui-ci")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@GetMapping("getFormModifierEtudiant")
 	public String getFormModifierEtudiant() {
 		return "rechercheModificationEtudiant";
@@ -301,6 +315,13 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
+	@ApiOperation(value = "Lire un étudiant modifié")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@PostMapping("/readUpdateEtudiant") 
 	public String readUpdateEtudiant(@RequestParam("idEtudiant") int id, Model model) {
 		model.addAttribute("etudiant", ietudiantservice.getById(id));
@@ -321,6 +342,13 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
+	@ApiOperation(value = "Modifier un étudiant")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@PostMapping("/udpateEtudiant") // it only support port method
 	public String udpateEtudiant(@RequestParam("idEtudiant") int idEtudiant, @RequestParam("nom") String nom,
 			@RequestParam("prenom") String prenom, @RequestParam("telephone") int telephone,
@@ -340,6 +368,13 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la suppression d'un Ã©tudiant
 	 * @return 
 	 */
+	@ApiOperation(value = "Rechercher un étudiant pour supprimer celui-ci")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@GetMapping("getFormSupprimerEtudiant")
 	public String getFormSupprimerEtudiant() {
 		return "suppressionEtudiant";
@@ -353,6 +388,13 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
+	@ApiOperation(value = "Supprimer un étudiant")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@PostMapping("/deleteEtudiant") // it only support port method
 	public String deleteEtudiant(@RequestParam("idEtudiant") int idEtudiant, Etudiant etudiant, ModelMap modelMap) {
 		etudiant.setId(idEtudiant);
