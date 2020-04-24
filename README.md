@@ -6,6 +6,6 @@ Prérequis :
 - Créer la base de données "gestionscolaire" et executer le contenu du script "gestionscolaire" dans la base.
 
 
-
+Lancement de l'application :
 - Telecharger le projet
 - A partir de la racine du projet executer la commande : mvn spring-boot:run
