@@ -13,22 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
-import eu.ensup.gestionscolairespringboot.domaine.Personne;
 import eu.ensup.gestionscolairespringboot.service.EtudiantService;
 import eu.ensup.gestionscolairespringboot.service.IEtudiantService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author Khady, Benjamin and David
  * Controller contenant les différentes méthodes permettant les interactions service <=> vues
  */
-@EnableSwagger2
 @Controller
-@Api(value="Système de gestion scolaire", description="Opérations en rapport avec le Système de gestion scolaire")
 public class StaticController {
 
 	@Autowired
@@ -70,19 +62,11 @@ public class StaticController {
 		super();
 		this.ietudiantservice = iformationService;
 	}
-	
 	/**
 	 * Méthode listant les étudiants
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Vue de la liste des étudiants")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@RequestMapping("/listeEtudiants")
 	public String listeEtudiants(Model model) {
 		System.out.println("entree dans la methode listeEtudiants");
@@ -95,13 +79,6 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Vue de la liste des cours")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@RequestMapping("/listeCours")
 	public String listeCours(Model model) {
 		System.out.println("entree dans la methode listeEtudiants");
@@ -113,13 +90,6 @@ public class StaticController {
 	 * redirection vers la page d'accueil
 	 * @return
 	 */
-	@ApiOperation(value = "Redirection à la vue accueil")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@RequestMapping("/accueil")
 	public String accueil() {
 		
@@ -131,18 +101,7 @@ public class StaticController {
 	 * redirige vers le formulaire de connexion
 	 * @return
 	 */
-<<<<<<< HEAD
-	@GetMapping({"/","getFormLogin"})
-=======
-	@ApiOperation(value = "Vue de la page login, vue par défaut lors du lancement de l'applicaiton")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@GetMapping("/")
->>>>>>> branch 'master' of https://github.com/Le-master-crew/gestionscolairespringboot.git
 	public String home() {
 		
 		return "getFormLogin";
@@ -155,13 +114,6 @@ public class StaticController {
 	 * @param cours
 	 * @return
 	 */
-	@ApiOperation(value = "Vue de liant un étudiant à un cours")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/lierEtudiantCours")
 	public String lierEtudiantCours(Etudiant etudiant, Cours cours) {
 		System.out.println("entree dans la methode ajouterEtudiant");
@@ -173,13 +125,6 @@ public class StaticController {
 	 * Redirection à la vue ajouterEtudiant.jsp
 	 * @return
 	 */
-	@ApiOperation(value = "Vue de la liste ajout d'un étudiants")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@GetMapping("getFormAjoutEtudiant")
 	public String getFormAjoutEtudiant() {
 		return "ajouterEtudiant";
@@ -200,13 +145,6 @@ public class StaticController {
 	 * 
 	 * Redirige sur la vue listeEtudiants.jsp
 	 */
-	@ApiOperation(value = "Sauvegarde d'un étudiant")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/saveEtudiant") // it only support port method
 	public String saveEtudiant(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("telephone") int telephone, @RequestParam("adresse") String adresse,
@@ -218,6 +156,7 @@ public class StaticController {
 		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
 		ietudiantservice.saveStudent(etudiant);
+
 		return "redirect:/listeEtudiants"; 
 	}
 
@@ -238,13 +177,6 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
-	@ApiOperation(value = "Authentification d'un dirigeant")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/login") // it only support port method
 	public String login(@RequestParam("password") String password, @RequestParam("login") String login,
 			Direction direction, ModelMap modelMap) {
@@ -262,13 +194,6 @@ public class StaticController {
 	 * redirige vers la vue searchEtudiant.jsp pour la recherche d'un étudiant 
 	 * @return
 	 */
-	@ApiOperation(value = "Vue de la recherche d'un étudiant pour étudiant détail")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@GetMapping("getFormLireEtudiant")
 	public String getFormLireEtudiant() {
 		return "searchEtudiant";
@@ -281,13 +206,6 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Lire un �tudiant")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/readEtudiant")
 	public String readEtudiant(@RequestParam("idEtudiant") int id, Model model) {
 		model.addAttribute("etudiant", ietudiantservice.getById(id));
@@ -298,13 +216,6 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la modification d'un étudiant 
 	 * @return
 	 */
-	@ApiOperation(value = "Recherche un �tudiant pour modifier celui-ci")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@GetMapping("getFormModifierEtudiant")
 	public String getFormModifierEtudiant() {
 		return "rechercheModificationEtudiant";
@@ -317,13 +228,6 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@ApiOperation(value = "Lire un �tudiant modifi�")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/readUpdateEtudiant") 
 	public String readUpdateEtudiant(@RequestParam("idEtudiant") int id, Model model) {
 		model.addAttribute("etudiant", ietudiantservice.getById(id));
@@ -344,13 +248,6 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
-	@ApiOperation(value = "Modifier un �tudiant")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/udpateEtudiant") // it only support port method
 	public String udpateEtudiant(@RequestParam("idEtudiant") int idEtudiant, @RequestParam("nom") String nom,
 			@RequestParam("prenom") String prenom, @RequestParam("telephone") int telephone,
@@ -362,7 +259,7 @@ public class StaticController {
 		etudiant.setAdresse(adresse);
 		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
-		ietudiantservice.update(etudiant);
+		//ietudiantservice.udpateStudent(etudiant);
 		return "redirect:/listeEtudiants"; 
 	}
 
@@ -370,13 +267,6 @@ public class StaticController {
 	 * redirige vers la vue rechercheModificationEtudiant.jsp pour la suppression d'un étudiant
 	 * @return 
 	 */
-	@ApiOperation(value = "Rechercher un �tudiant pour supprimer celui-ci")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@GetMapping("getFormSupprimerEtudiant")
 	public String getFormSupprimerEtudiant() {
 		return "suppressionEtudiant";
@@ -390,17 +280,10 @@ public class StaticController {
 	 * @param modelMap
 	 * @return
 	 */
-	@ApiOperation(value = "Supprimer un �tudiant")
-	@ApiResponses(value = {
-		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
-		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-		})
 	@PostMapping("/deleteEtudiant") // it only support port method
 	public String deleteEtudiant(@RequestParam("idEtudiant") int idEtudiant, Etudiant etudiant, ModelMap modelMap) {
 		etudiant.setId(idEtudiant);
-		ietudiantservice.deleteStudent(etudiant);
+		// ietudiantservice.deleteStudent(idEtudiant);
 		return "messageSuppression"; // welcome is view name. It will call welcome.jsp
 	}
 }

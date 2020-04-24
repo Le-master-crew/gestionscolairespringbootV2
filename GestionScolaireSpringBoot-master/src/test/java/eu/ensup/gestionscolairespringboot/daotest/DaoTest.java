@@ -28,8 +28,8 @@ class DaoTest {
 
 	@Test
 	void readShouldReturnTrue() {
-
-		fail();
+		// lit un étudiant en bdd et asserte que le prenom de l"étudiant lu
+		
 	}
 
 	@Test
