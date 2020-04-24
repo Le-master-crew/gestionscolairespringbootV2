@@ -80,7 +80,7 @@ public class EtudiantService implements IEtudiantService {
 
 	@Override
 	public void update(Etudiant etu) {
-		etudiantDAO.save(etu);
+		personneDAO.save(etu);
 		
 	}
 
