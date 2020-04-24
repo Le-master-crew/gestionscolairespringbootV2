@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
+import eu.ensup.gestionscolairespringboot.domaine.Personne;
 import eu.ensup.gestionscolairespringboot.service.EtudiantService;
 import eu.ensup.gestionscolairespringboot.service.IEtudiantService;
 import io.swagger.annotations.Api;
@@ -162,15 +163,16 @@ public class StaticController {
 	@PostMapping("/saveEtudiant") // it only support port method
 	public String saveEtudiant(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("telephone") int telephone, @RequestParam("adresse") String adresse,
-			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Etudiant etudiant,
+			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Personne personne,Etudiant etudiant,
 			ModelMap modelMap) {
-		etudiant.setNom(nom);
-		etudiant.setPrenom(prenom);
-		etudiant.setAdresse(adresse);
-		etudiant.setTelephone(telephone);
+		personne.setNom(nom);
+		personne.setPrenom(prenom);
+		personne.setAdresse(adresse);
+		personne.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
+		//ietudiantservice.savePerson(personne);
+		etudiant.setId(personne.getId());
 		ietudiantservice.saveStudent(etudiant);
-
 		return "redirect:/listeEtudiants"; 
 	}
 
@@ -273,7 +275,7 @@ public class StaticController {
 		etudiant.setAdresse(adresse);
 		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
-		//ietudiantservice.udpateStudent(etudiant);
+		ietudiantservice.update(etudiant);
 		return "redirect:/listeEtudiants"; 
 	}
 
@@ -297,7 +299,7 @@ public class StaticController {
 	@PostMapping("/deleteEtudiant") // it only support port method
 	public String deleteEtudiant(@RequestParam("idEtudiant") int idEtudiant, Etudiant etudiant, ModelMap modelMap) {
 		etudiant.setId(idEtudiant);
-		// ietudiantservice.deleteStudent(idEtudiant);
+		ietudiantservice.deleteStudent(etudiant);
 		return "messageSuppression"; // welcome is view name. It will call welcome.jsp
 	}
 }
