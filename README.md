@@ -20,5 +20,6 @@ Lancement de l'application :
 - Telecharger le projet
 - A partir de la racine du projet executer la commande : mvn spring-boot:run
 - A partir d'un navigateur, accéder à : localhost:8080. Voici l'écran de connexion où vous pouvez vous connecter avec le compte admin
+
   identiant : admin
   mot de passe : admin
