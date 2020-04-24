@@ -1,6 +1,6 @@
 # gestionscolairespringboot
 
-L'application a été développé avec Spring Boot. Celle-ci permet de gérer les étudiants d'une école.
+L'application a été développée avec Spring Boot. Celle-ci permet de gérer les étudiants d'une école.
 Plusieurs fonctionnalités sont disponibles :
 - connexion à la plateforme
 - lister les étudiant
