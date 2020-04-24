@@ -76,7 +76,7 @@ public class EtudiantService implements IEtudiantService {
 
 	@Override
 	public void update(Etudiant etu) {
-		etudiantDAO.merge(etu);
+		etudiantDAO.save(etu);
 		
 	}
 
