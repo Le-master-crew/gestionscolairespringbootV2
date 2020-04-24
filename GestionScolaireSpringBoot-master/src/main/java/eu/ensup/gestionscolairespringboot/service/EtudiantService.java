@@ -83,5 +83,11 @@ public class EtudiantService implements IEtudiantService {
 		personneDAO.save(etu);
 		
 	}
+	
+	public List<Cours> getAllCours() {
+		
+		return coursDAO.findAll();
+		
+	}
 
 }
