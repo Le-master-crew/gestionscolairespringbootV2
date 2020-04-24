@@ -116,7 +116,7 @@ public class StaticController {
 	 * redirige vers le formulaire de connexion
 	 * @return
 	 */
-	@GetMapping("/")
+	@GetMapping({"/","getFormLogin"})
 	public String home() {
 		
 		return "getFormLogin";
@@ -163,15 +163,13 @@ public class StaticController {
 	@PostMapping("/saveEtudiant") // it only support port method
 	public String saveEtudiant(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("telephone") int telephone, @RequestParam("adresse") String adresse,
-			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Personne personne,Etudiant etudiant,
+			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Etudiant etudiant,
 			ModelMap modelMap) {
-		personne.setNom(nom);
-		personne.setPrenom(prenom);
-		personne.setAdresse(adresse);
-		personne.setTelephone(telephone);
+		etudiant.setNom(nom);
+		etudiant.setPrenom(prenom);
+		etudiant.setAdresse(adresse);
+		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
-		//ietudiantservice.savePerson(personne);
-		etudiant.setId(personne.getId());
 		ietudiantservice.saveStudent(etudiant);
 		return "redirect:/listeEtudiants"; 
 	}
