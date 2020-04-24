@@ -16,12 +16,19 @@ import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
 import eu.ensup.gestionscolairespringboot.domaine.Personne;
 import eu.ensup.gestionscolairespringboot.service.EtudiantService;
 import eu.ensup.gestionscolairespringboot.service.IEtudiantService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author Khady, Benjamin and David
  * Controller contenant les différentes méthodes permettant les interactions service <=> vues
  */
+@EnableSwagger2
 @Controller
+@Api(value="Employee Management System", description="Operations pertaining to employee in Employee Management System")
 public class StaticController {
 
 	@Autowired
@@ -68,6 +75,13 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
+	@ApiOperation(value = "View a list of available employees")
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
+		    @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+		    @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+		})
 	@RequestMapping("/listeEtudiants")
 	public String listeEtudiants(Model model) {
 		System.out.println("entree dans la methode listeEtudiants");
