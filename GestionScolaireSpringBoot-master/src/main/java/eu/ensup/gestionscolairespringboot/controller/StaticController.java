@@ -171,7 +171,7 @@ public class StaticController {
 		etudiant.setDateNaissance(dateNaissance);
 		ietudiantservice.saveStudent(etudiant);
 
-		return "listeEtudiants"; 
+		return "redirect:/listeEtudiants"; 
 	}
 
 	/**
@@ -242,10 +242,10 @@ public class StaticController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/readUpdateEtudiant") // it only support port method
+	@PostMapping("/readUpdateEtudiant") 
 	public String readUpdateEtudiant(@RequestParam("idEtudiant") int id, Model model) {
 		model.addAttribute("etudiant", ietudiantservice.getById(id));
-		return "modificationEtudiant"; // welcome is view name. It will call welcome.jsp
+		return "modificationEtudiant"; 
 	}
 
 	/**
@@ -273,8 +273,8 @@ public class StaticController {
 		etudiant.setAdresse(adresse);
 		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
-		// ietudiantservice.udpateStudent(etudiant);
-		return "listeEtudiants"; // welcome is view name. It will call welcome.jsp
+		//ietudiantservice.udpateStudent(etudiant);
+		return "redirect:/listeEtudiants"; 
 	}
 
 	/**
