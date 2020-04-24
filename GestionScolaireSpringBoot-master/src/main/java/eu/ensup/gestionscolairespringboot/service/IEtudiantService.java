@@ -12,5 +12,6 @@ public interface IEtudiantService {
     public void deleteStudent(Etudiant etudiant);
     public void lierCoursEtudiant(Cours cours, Etudiant etudiant);
     Direction login(String login, String password);
+    public void update(Etudiant etu);
 
 }
