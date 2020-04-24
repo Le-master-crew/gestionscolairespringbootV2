@@ -72,4 +72,12 @@ public class EtudiantService implements IEtudiantService {
     	return direction;
     }
 
+
+
+	@Override
+	public void update(Etudiant etu) {
+		etudiantDAO.merge(etu);
+		
+	}
+
 }

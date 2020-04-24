@@ -13,7 +13,8 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Integer>{
      public Etudiant save(Etudiant etu);
      public List<Etudiant> findAll();
      public Etudiant getById(int id);
-     public void delete(Etudiant etu);    
+     public void delete(Etudiant etu);
+     public void merge(Etudiant etu);
     
 
 }
