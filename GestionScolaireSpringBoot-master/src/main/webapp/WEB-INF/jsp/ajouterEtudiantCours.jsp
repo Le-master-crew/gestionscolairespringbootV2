@@ -60,7 +60,7 @@
 								<!-- <th scope="row"><%-- out.println(i); --%></th>  -->
 								<td>${cours.idCours}</td>
 								<td>${cours.libelle}</td>
-								<td>${cours.nbHeure} Hr</td>
+								<td>${cours.nbHeure} Hrs</td>
 							</tr>
 						</c:forEach>
 				    </tbody>
