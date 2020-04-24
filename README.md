@@ -3,7 +3,7 @@
 L'application a été développée avec Spring Boot. Celle-ci permet de gérer les étudiants d'une école.
 Plusieurs fonctionnalités sont disponibles :
 - connexion à la plateforme
-- lister les étudiant
+- lister les étudiants
 - lister les cours
 - ajouter un étudiant
 - supprimer un étudiant
