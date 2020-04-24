@@ -1,6 +1,6 @@
 # gestionscolairespringboot
 
-L'application a été développé avec Spring Boot. Celle-ci permet de gérer une école.
+L'application a été développé avec Spring Boot. Celle-ci permet de gérer les étudiants d'une école.
 Plusieurs fonctionnalités sont disponibles :
 - connexion à la plateforme
 - lister les étudiant
@@ -19,3 +19,6 @@ Prérequis :
 Lancement de l'application :
 - Telecharger le projet
 - A partir de la racine du projet executer la commande : mvn spring-boot:run
+- A partir d'un navigateur, accéder à : localhost:8080. Voici l'écran de connexion où vous pouvez vous connecter avec le compte admin
+  identiant : admin
+  mot de passe : admin
