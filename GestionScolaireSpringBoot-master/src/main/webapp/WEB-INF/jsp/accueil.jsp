@@ -22,7 +22,7 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item active" style="padding-right: 10px">
-					<a class="nav-link" href="index.jsp">Déconnexion <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="/getFormLogin">Déconnexion <span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
 		</div>

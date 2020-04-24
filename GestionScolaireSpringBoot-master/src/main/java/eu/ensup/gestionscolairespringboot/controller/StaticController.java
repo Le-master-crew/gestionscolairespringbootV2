@@ -131,6 +131,9 @@ public class StaticController {
 	 * redirige vers le formulaire de connexion
 	 * @return
 	 */
+<<<<<<< HEAD
+	@GetMapping({"/","getFormLogin"})
+=======
 	@ApiOperation(value = "Vue de la page login, vue par défaut lors du lancement de l'applicaiton")
 	@ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successfully retrieved list"),
@@ -139,6 +142,7 @@ public class StaticController {
 		    @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
 		})
 	@GetMapping("/")
+>>>>>>> branch 'master' of https://github.com/Le-master-crew/gestionscolairespringboot.git
 	public String home() {
 		
 		return "getFormLogin";
@@ -206,15 +210,13 @@ public class StaticController {
 	@PostMapping("/saveEtudiant") // it only support port method
 	public String saveEtudiant(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("telephone") int telephone, @RequestParam("adresse") String adresse,
-			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Personne personne,Etudiant etudiant,
+			@RequestParam("mail") String mail, @RequestParam("dateNaissance") String dateNaissance, Etudiant etudiant,
 			ModelMap modelMap) {
-		personne.setNom(nom);
-		personne.setPrenom(prenom);
-		personne.setAdresse(adresse);
-		personne.setTelephone(telephone);
+		etudiant.setNom(nom);
+		etudiant.setPrenom(prenom);
+		etudiant.setAdresse(adresse);
+		etudiant.setTelephone(telephone);
 		etudiant.setDateNaissance(dateNaissance);
-		//ietudiantservice.savePerson(personne);
-		etudiant.setId(personne.getId());
 		ietudiantservice.saveStudent(etudiant);
 		return "redirect:/listeEtudiants"; 
 	}
