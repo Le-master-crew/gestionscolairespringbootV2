@@ -8,11 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * @author benja
  * Classe Cours
  */
 @Entity
+@ApiModel(description = "All details about the Cours. ")
 public class Cours {
 
 	@Id
