@@ -26,7 +26,7 @@
 	        <p class="info">Oh! Page not found</p>
 	        <p class="info">L'identifiant ou le mot de passe saisi est erroné</p>
 	        <div class="container">
-       	        <button type="button" class="home-btn" onclick="location.href = '/index2.jsp';">Retour</button>
+       	        <button type="button" class="home-btn" onclick="location.href = '/';">Retour</button>
 	        </div>
     	</div>
 	</div>
