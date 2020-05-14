@@ -78,17 +78,18 @@ class EtudiantServiceTest {
         assertEquals(3, listEtu.size());
     }
     
+   
     
-
-//    @Test
-//    void getAllEtudiantTest() {
-//    	
-//    }
-//    
-//    @Test
-//    void getEtudiantByIdTest() {
-//    	
-//    }
+    @Test
+    void getEtudiantByIdTest() {
+    	
+    	Etudiant etu =  new Etudiant();
+    	etu.setId(1);
+    	
+    	when.(ietudiantdao.findById()).thenReturn(etu);
+    	
+    	assertEquals(etu, etudiantService.getById());
+    }
 //    
 //    
 //    @Test
