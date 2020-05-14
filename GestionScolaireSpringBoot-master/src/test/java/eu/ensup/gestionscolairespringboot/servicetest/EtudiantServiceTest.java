@@ -1,6 +1,7 @@
 package eu.ensup.gestionscolairespringboot.servicetest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -84,6 +85,7 @@ class EtudiantServiceTest {
     	etu.setId(1);
     	when(ietudiantdao.getOne(1)).thenReturn(etu);
     	assertEquals(etu, etudiantService.getById(1));
+    	
     }
 //    
 //    
