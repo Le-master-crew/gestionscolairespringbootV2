@@ -120,6 +120,11 @@ public class StaticController {
 
 		return "getFormLogin";
 	}
+	
+	@GetMapping("getFormAjoutEtudiantCours")
+	public String getFormAjoutEtudiantCourst() {
+		return "ajouterEtudiantCours";
+	}
 
 	/**
 	 * permet de lier un étudiant à un cours redirige vers la vue
@@ -132,7 +137,7 @@ public class StaticController {
 	@PostMapping("/lierEtudiantCours")
 	public String lierEtudiantCours(Etudiant etudiant, Cours cours) {
 		System.out.println("entree dans la methode ajouterEtudiant");
-		// ietudiantservice.lierCoursEtudiant(etudiant, cours);
+		ietudiantservice.lierCoursEtudiant(cours, etudiant);
 		return "messageAjoutEtudiantCours";
 	}
 
@@ -183,13 +188,6 @@ public class StaticController {
 		return "redirect:/listeEtudiants";
 	}
 
-	/**
-	 * @return
-	 */
-//	@RequestMapping("/")
-//	public String getFormLogin() {
-//		return "accueil";
-//	}
 
 	/**
 	 * utilisation de la méthode permettant à un dirigeant de se connecter Dans le

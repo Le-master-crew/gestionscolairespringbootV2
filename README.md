@@ -13,13 +13,13 @@ Plusieurs fonctionnalités sont disponibles :
 
 Prérequis :
 - Installation du serveur de base de données sur la machine (XAMPP ou WAMPP)
-- Créer la base de données "gestionscolaire" et executer le contenu du script "gestionscolaire" dans la base.
+- Créer la base de données "gestionscolaire".
 
 
 Lancement de l'application :
 - Télécharger le projet
 - A partir de la racine du projet executer la commande : mvn spring-boot:run
-- A partir d'un navigateur, accéder à : localhost:8080. Voici l'écran de connexion où vous pouvez vous connecter avec le compte admin
+- A partir d'un navigateur, accéder à : http://localhost:8080/ . Voici l'écran de connexion où vous pouvez vous connecter avec le compte admin
 
   - identifiant : root
   - mot de passe : root

@@ -1,2 +1,7 @@
-INSERT INTO personne (id, adresse, mail, nom, prenom, telephone) VALUES
-  (1, '2 rue incognito', 'incognito.gmail.com', 'inco', 'gnito', 11111111);
+INSERT INTO `personne` (`id`, `adresse`, `mail`, `nom`, `prenom`, `telephone`) VALUES
+(60, '1 avenue de Paris', 'gtm@ensup.eu', 'Admin', 'admin', 12345678);
+
+
+
+INSERT INTO `direction` (`login`, `password`, `id`) VALUES
+('root', 'root', 60);
