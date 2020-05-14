@@ -1,6 +1,7 @@
 package eu.ensup.gestionscolairespringboot.servicetest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -60,35 +61,31 @@ class EtudiantServiceTest {
 
 	}
 
-    @Test
-    void getAllEtudiantTest() {
-    	List<Etudiant> list = new ArrayList<Etudiant>();
-    	Etudiant etu1 = new Etudiant(7, "nom", "prenom", "mail", "adresse", 123, "dateNaissance");
-    	Etudiant etu2 = new Etudiant(2, "nom2", "prenom2", "mail2", "adresse2", 123, "dateNaissance2");
-    	Etudiant etu3 = new Etudiant(3, "nom3", "prenom3", "mail3", "adresse3", 123, "dateNaissance3");
-   
-    	list.add(etu1);
-        list.add(etu2);
-        list.add(etu3);
-        
-        Mockito.when(ietudiantdao.findAll()).thenReturn(list);
-        
-        List<Etudiant> listEtu = etudiantService.getAll();
-        
-        assertEquals(3, listEtu.size());
-    }
-    
-   
-    
-    @Test
+	@Test
+	void getAllEtudiantTest() {
+		List<Etudiant> list = new ArrayList<Etudiant>();
+		Etudiant etu1 = new Etudiant(7, "nom", "prenom", "mail", "adresse", 123, "dateNaissance");
+		Etudiant etu2 = new Etudiant(2, "nom2", "prenom2", "mail2", "adresse2", 123, "dateNaissance2");
+		Etudiant etu3 = new Etudiant(3, "nom3", "prenom3", "mail3", "adresse3", 123, "dateNaissance3");
+
+		list.add(etu1);
+		list.add(etu2);
+		list.add(etu3);
+
+		Mockito.when(ietudiantdao.findAll()).thenReturn(list);
+
+		List<Etudiant> listEtu = etudiantService.getAll();
+
+		assertEquals(3, listEtu.size());
+	}
+
+	@Test
     void getEtudiantByIdTest() {
-    	
     	Etudiant etu =  new Etudiant();
     	etu.setId(1);
+    	when(ietudiantdao.getOne(1)).thenReturn(etu);
+    	assertEquals(etu, etudiantService.getById(1));
     	
-    	when.(ietudiantdao.findById()).thenReturn(etu);
-    	
-    	assertEquals(etu, etudiantService.getById());
     }
     
     
