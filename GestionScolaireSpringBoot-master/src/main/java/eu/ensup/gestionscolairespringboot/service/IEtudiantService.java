@@ -13,7 +13,7 @@ public interface IEtudiantService {
     public List<Etudiant> getAll();
     public Etudiant getById(int id);
     public void deleteStudent(Etudiant etudiant);
-    public boolean lierCoursEtudiant(Cours cours, Etudiant etudiant);
+    public Etudiant lierCoursEtudiant(Cours cours, Etudiant etudiant);
     Direction login(String login, String password);
     public Etudiant update(Etudiant etu);
     public List<Cours> getAllCours();

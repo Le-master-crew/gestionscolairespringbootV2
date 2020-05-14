@@ -66,11 +66,10 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	@Override
-	public boolean lierCoursEtudiant(Cours cours, Etudiant etudiant) {
+	public Etudiant lierCoursEtudiant(Cours cours, Etudiant etudiant) {
 		if (etudiantDAO.existsById(etudiant.getId()) && coursDAO.existsById(cours.getIdCours())) {
-			etudiantDAO.saveAndFlush(etudiant);
-			return true;
-		} else return false;
+			return etudiantDAO.saveAndFlush(etudiant);
+		} else return null;
 
 	}
 
