@@ -6,13 +6,13 @@ import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
 import java.util.List;
 
 public interface IEtudiantService {
-    public void saveStudent(Etudiant etu);
+    public Etudiant saveStudent(Etudiant etu);
     public List<Etudiant> getAll();
     public Etudiant getById(int id);
     public void deleteStudent(Etudiant etudiant);
-    public void lierCoursEtudiant(Cours cours, Etudiant etudiant);
+    public boolean lierCoursEtudiant(Cours cours, Etudiant etudiant);
     Direction login(String login, String password);
-    public void update(Etudiant etu);
+    public Etudiant update(Etudiant etu);
     public List<Cours> getAllCours();
 
 }
