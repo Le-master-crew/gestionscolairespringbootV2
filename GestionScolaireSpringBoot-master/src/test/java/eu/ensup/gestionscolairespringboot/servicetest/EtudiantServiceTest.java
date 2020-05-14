@@ -1,19 +1,14 @@
 package eu.ensup.gestionscolairespringboot.servicetest;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
@@ -37,18 +32,26 @@ class EtudiantServiceTest {
 	}
 
 	@Test
+	void saveStudentTest() {
+		Etudiant etu = new Etudiant();
+		Etudiant etu2 = new Etudiant();
+		etu.setPrenom("test");
+		when(ietudiantdao.save(etu)).thenReturn(etu2);
+		assertEquals(etu2, etudiantService.saveStudent(etu));
+	}
+
+	@Test
 	void LireEtudiantTest() {
 		Etudiant etu = new Etudiant(7, "nom", "prenom", "mail", "adresse", 123, "dateNaissance");
 		// 1. Imposer un comportement à notre mock (dao)
-		Mockito.when(ietudiantdao.getOne(7)).thenReturn(etu);
+		when(ietudiantdao.getOne(7)).thenReturn(etu); // class Mockito importé en static
 		// 2. Utiliser le service
 		Etudiant found = etudiantService.getById(7);
-		
-		//verify(ietudiantdao, times(1)).getOne(7);
+		// verify(ietudiantdao, times(1)).getOne(7);
 		assertEquals("prenom", found.getPrenom());
-		
+
 	}
-    
+
 //    @Test
 //    void getAllEtudiantTest() {
 //    	
@@ -59,10 +62,6 @@ class EtudiantServiceTest {
 //    	
 //    }
 //    
-//    @Test
-//    void deleteStudentTest() {
-//    	
-//    }
 //    
 //    @Test
 //    void lierCoursEtudiantTest() {
@@ -78,5 +77,5 @@ class EtudiantServiceTest {
 //    void updateTest() {
 //    	
 //    }
-    
+
 }
