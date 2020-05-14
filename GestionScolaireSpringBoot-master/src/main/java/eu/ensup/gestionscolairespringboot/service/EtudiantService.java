@@ -7,6 +7,8 @@ import eu.ensup.gestionscolairespringboot.dao.PersonneRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
+import eu.ensup.gestionscolairespringboot.domaine.Personne;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +43,8 @@ public class EtudiantService implements IEtudiantService {
 
 
 	@Override
-    public void saveStudent(Etudiant etu) {
-		personneDAO.save(etu);
+    public Personne saveStudent(Etudiant etu) {
+		return personneDAO.save(etu);
     }
 
     @Override
