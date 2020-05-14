@@ -11,14 +11,13 @@ import eu.ensup.gestionscolairespringboot.dao.PersonneRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
-<<<<<<< HEAD
+
 import eu.ensup.gestionscolairespringboot.domaine.Personne;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-=======
->>>>>>> branch 'master' of https://github.com/Le-master-crew/gestionscolairespringboot.git
+
 
 public class EtudiantService implements IEtudiantService {
 
@@ -47,52 +46,8 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	@Override
-<<<<<<< HEAD
-    public Personne saveStudent(Etudiant etu) {
-		return personneDAO.save(etu);
-    }
-
-    @Override
-    public List<Etudiant> getAll() {
-        return etudiantDAO.findAll();
-    }
-
-    @Override
-    public Etudiant getById(int id) {
-        return etudiantDAO.getOne(id);
-    }
-
-    @Override
-    public void deleteStudent(Etudiant etudiant) {
-        etudiantDAO.delete(etudiant);
-    }
-
-    @Override
-    public void lierCoursEtudiant(Cours cours, Etudiant etudiant) {
-        if (etudiantDAO.existsById(etudiant.getId())  && coursDAO.existsById(cours.getIdCours())) {
-            etudiantDAO.saveAndFlush(etudiant);
-        }
-        
-    }
-    
-    @Override
-    public Direction login(String login,String password) {
-    	Direction direction = new Direction();
-        direction = 	directionDAO.findByLoginAndPassword(login, password);
-        System.out.println("sysout de direction" + direction);
-    	return direction;
-    }
-
-
-
-	@Override
-	public void update(Etudiant etu) {
-		personneDAO.save(etu);
-		
-=======
 	public Etudiant saveStudent(Etudiant etu) {
 		return etudiantDAO.save(etu);
->>>>>>> branch 'master' of https://github.com/Le-master-crew/gestionscolairespringboot.git
 	}
 
 	@Override
