@@ -1,7 +1,6 @@
 package eu.ensup.gestionscolairespringboot.servicetest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ class EtudiantServiceTest {
 
 	@Mock
 	private EtudiantRepository ietudiantdao;
-	
+
 	@Mock
 	private CoursRepository icoursdao;
 
@@ -85,39 +84,31 @@ class EtudiantServiceTest {
 	}
 
 	@Test
-    void getEtudiantByIdTest() {
-    	Etudiant etu =  new Etudiant();
-    	etu.setId(1);
-    	when(ietudiantdao.getOne(1)).thenReturn(etu);
-    	assertEquals(etu, etudiantService.getById(1));
-    	
-    }
-    
-    
-    @Test
-    void lierCoursEtudiantTest() {
-    	
-    	Etudiant etu = new Etudiant();
-    	Cours cours = new Cours();
-    	
-    	etu.setId(1);
-    	cours.setIdCours(2);
-    	
-    	when(ietudiantdao.existsById(1)).thenReturn(true);
-    	when(icoursdao.existsById(2)).thenReturn(true);
-    	when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
-    	
-    	assertEquals(etu,etudiantService.lierCoursEtudiant(cours, etu));
-    	
-    	
-    }
-    
-//    
-//    @Test
-//    void loginTest() {
-//    	
-//    }
-//    
+	void getEtudiantByIdTest() {
+		Etudiant etu = new Etudiant();
+		etu.setId(1);
+		when(ietudiantdao.getOne(1)).thenReturn(etu);
+		assertEquals(etu, etudiantService.getById(1));
+
+	}
+
+	@Test
+	void lierCoursEtudiantTest() {
+
+		Etudiant etu = new Etudiant();
+		Cours cours = new Cours();
+
+		etu.setId(1);
+		cours.setIdCours(2);
+
+		when(ietudiantdao.existsById(1)).thenReturn(true);
+		when(icoursdao.existsById(2)).thenReturn(true);
+		when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
+
+		assertEquals(etu, etudiantService.lierCoursEtudiant(cours, etu));
+
+	}
+
 //    @Test
 //    void updateTest() {
 //    	

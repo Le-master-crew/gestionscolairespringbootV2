@@ -1,11 +1,10 @@
 package eu.ensup.gestionscolairespringboot.service;
 
+import java.util.List;
+
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
-import eu.ensup.gestionscolairespringboot.domaine.Personne;
-
-import java.util.List;
 
 public interface IEtudiantService {
 
