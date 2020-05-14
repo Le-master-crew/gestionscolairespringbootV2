@@ -102,7 +102,7 @@ class EtudiantServiceTest {
     	when(icoursdao.existsById(2)).thenReturn(cours);
     	when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
     	
-    	assertEquals(etu, etudiantService.lierCoursEtudiant(cours, etu));
+    	assertEquals(etu,etudiantService.lierCoursEtudiant(cours, etu));
     	
     	
     }
