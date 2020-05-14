@@ -15,7 +15,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import eu.ensup.gestionscolairespringboot.dao.CoursRepository;
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
+import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
 import eu.ensup.gestionscolairespringboot.service.EtudiantService;
 
@@ -23,6 +25,9 @@ class EtudiantServiceTest {
 
 	@Mock
 	private EtudiantRepository ietudiantdao;
+	
+	@Mock
+	private CoursRepository icoursdao;
 
 	@Autowired
 	@InjectMocks
@@ -93,13 +98,13 @@ class EtudiantServiceTest {
     void lierCoursEtudiantTest() {
     	
     	Etudiant etu = new Etudiant();
-    	Cours cours = new Etudiant();
+    	Cours cours = new Cours();
     	
     	etu.setId(1);
-    	cours.setIdCours(2)
+    	cours.setIdCours(2);
     	
-    	when(ietudiantdao.existsById(1)).thenReturn(etu);
-    	when(icoursdao.existsById(2)).thenReturn(cours);
+    	when(ietudiantdao.existsById(1)).thenReturn(true);
+    	when(icoursdao.existsById(2)).thenReturn(true);
     	when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
     	
     	assertEquals(etu,etudiantService.lierCoursEtudiant(cours, etu));
