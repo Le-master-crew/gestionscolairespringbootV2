@@ -22,11 +22,11 @@
 	<div class="container">
 	    <div class="error-wrapper">
 	        <div class="man-icon"></div>
-	        <h3 class="title">404</h3>
+	        <h3 class="title">Erreur</h3>
 	        <p class="info">Oh! Page not found</p>
 	        <p class="info">L'identifiant ou le mot de passe saisi est erroné</p>
 	        <div class="container">
-       	        <button type="button" class="home-btn" onclick="location.href = '/index2.jsp';">Retour</button>
+       	        <button type="button" class="home-btn" onclick="location.href = '/';">Retour</button>
 	        </div>
     	</div>
 	</div>
