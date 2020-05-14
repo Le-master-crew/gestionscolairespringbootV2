@@ -90,12 +90,26 @@ class EtudiantServiceTest {
     	
     	assertEquals(etu, etudiantService.getById());
     }
-//    
-//    
-//    @Test
-//    void lierCoursEtudiantTest() {
-//    	
-//    }
+    
+    
+    @Test
+    void lierCoursEtudiantTest() {
+    	
+    	Etudiant etu = new Etudiant();
+    	Cours cours = new Etudiant();
+    	
+    	etu.setId(1);
+    	cours.setIdCours(2)
+    	
+    	when(ietudiantdao.existsById(1)).thenReturn(etu);
+    	when(icoursdao.existsById(2)).thenReturn(cours);
+    	when(ietudiantdao.saveAndFlush(etu)).thenReturn();
+    	
+    	assertTrue(etudiantService.lierCoursEtudiant(cours, etu));
+    	
+    	
+    }
+    
 //    
 //    @Test
 //    void loginTest() {
