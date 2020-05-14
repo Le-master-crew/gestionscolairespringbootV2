@@ -15,30 +15,6 @@
 	<title>Ajouter un étudiant à un cours</title>
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="accueil.jsp">Gestion Etudiants</a>
-	  	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-    		<ul class="navbar-nav">
-    			<li class="nav-item dropdown">
-			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Menu étudiant
-			        </a>
-			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			          <a class="dropdown-item" href="listeEtudiants">Lister étudiants</a>
-			          <a class="dropdown-item" href="getFormLireEtudiant">Info étudiant</a>
-			          <a class="dropdown-item" href="getFormSupprimerEtudiant">Supprimer un étudiant</a>
-			          <a class="dropdown-item" href="getFormModifierEtudiant">Modifier un étudiant</a>
-			          <a class="dropdown-item" href="getFormAjoutEtudiant">Ajouter un étudiant</a>
-			          <a class="dropdown-item" href="getFormAjoutEtudiantCours">Rajouter un étudiant à un cours</a>
-			        </div>
-			    </li>
-				<li class="nav-item active" style="padding-right: 10px">
-		       		<a class="nav-link" href="index.jsp">Déconnexion <span class="sr-only">(current)</span></a>
-		   		</li>
-    		</ul>
-  		</div>
-	</nav>
 	
 	<div class="container">
 		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Roboto:100,300,400,500,700,900" rel="stylesheet" />
@@ -47,7 +23,7 @@
 	        <div class="man-icon"></div>
 	        <h3 class="title">500</h3>
 	        <p class="info">Oh! Page not found</p>
-	        <button type="button" class="home-btn" onclick="location.href = '/gestionscolairespringboot/accueil.jsp';">Accueil</button>
+	        <button type="button" class="home-btn" onclick="location.href = '/';">Accueil</button>
     	</div>
 	</div>
 </body>

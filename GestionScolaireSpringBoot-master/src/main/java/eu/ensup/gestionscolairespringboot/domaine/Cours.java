@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModel;
  * Classe Cours
  */
 @Entity
-@ApiModel(description = "All details about the Cours. ")
+@ApiModel(description = "All details about the Employee. ")
 public class Cours {
 
 	@Id
