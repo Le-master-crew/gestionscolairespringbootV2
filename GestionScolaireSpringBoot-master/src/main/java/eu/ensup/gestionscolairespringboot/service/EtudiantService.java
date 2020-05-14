@@ -1,5 +1,9 @@
 package eu.ensup.gestionscolairespringboot.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import eu.ensup.gestionscolairespringboot.dao.CoursRepository;
 import eu.ensup.gestionscolairespringboot.dao.DirectionRepository;
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
@@ -7,9 +11,6 @@ import eu.ensup.gestionscolairespringboot.dao.PersonneRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class EtudiantService implements IEtudiantService {
 
@@ -38,8 +39,8 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	@Override
-	public void saveStudent(Etudiant etu) {
-		personneDAO.save(etu);
+	public Etudiant saveStudent(Etudiant etu) {
+		return etudiantDAO.save(etu);
 	}
 
 	@Override
@@ -58,10 +59,11 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	@Override
-	public void lierCoursEtudiant(Cours cours, Etudiant etudiant) {
+	public boolean lierCoursEtudiant(Cours cours, Etudiant etudiant) {
 		if (etudiantDAO.existsById(etudiant.getId()) && coursDAO.existsById(cours.getIdCours())) {
 			etudiantDAO.saveAndFlush(etudiant);
-		}
+			return true;
+		} else return false;
 
 	}
 
@@ -74,9 +76,8 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	@Override
-	public void update(Etudiant etu) {
-		personneDAO.save(etu);
-
+	public Etudiant update(Etudiant etu) {
+		return etudiantDAO.save(etu);
 	}
 
 	public List<Cours> getAllCours() {
