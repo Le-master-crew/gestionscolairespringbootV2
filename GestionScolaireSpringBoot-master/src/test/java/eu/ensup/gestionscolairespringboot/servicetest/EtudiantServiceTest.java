@@ -1,7 +1,6 @@
 package eu.ensup.gestionscolairespringboot.servicetest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import eu.ensup.gestionscolairespringboot.dao.CoursRepository;
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
@@ -24,6 +24,9 @@ class EtudiantServiceTest {
 
 	@Mock
 	private EtudiantRepository ietudiantdao;
+
+	@Mock
+	private CoursRepository icoursdao;
 
 	@Autowired
 	@InjectMocks
@@ -79,34 +82,31 @@ class EtudiantServiceTest {
 
 		assertEquals(3, listEtu.size());
 	}
-    
+
+	@Test
+	void lierCoursEtudiantTest() {
+
+		Etudiant etu = new Etudiant();
+		Cours cours = new Cours();
+
+		etu.setId(1);
+		cours.setIdCours(2);
+
+		when(ietudiantdao.existsById(1)).thenReturn(true);
+		when(icoursdao.existsById(2)).thenReturn(true);
+		when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
+
+		assertEquals(etu, etudiantService.lierCoursEtudiant(cours, etu));
+
+	}
+
     @Test
-    void lierCoursEtudiantTest() {
-    	
+    void updateTest() {
     	Etudiant etu = new Etudiant();
-    	Cours cours = new Cours();
-    	
-    	etu.setId(1);
-    	cours.setIdCours(2);
-    	
-    	when(ietudiantdao.existsById(1)).thenReturn(true);
-    	when(icoursdao.existsById(2)).thenReturn(cours);
-    	when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
-    	
-    	assertEquals(etu,etudiantService.lierCoursEtudiant(cours, etu));
-    	
-    	
+		Etudiant etu2 = new Etudiant();
+		etu2.setPrenom("prenom");
+		when(ietudiantdao.save(etu)).thenReturn(etu2);
+		assertEquals(etu2, etudiantService.update(etu));
     }
-    
-//    
-//    @Test
-//    void loginTest() {
-//    	
-//    }
-//    
-//    @Test
-//    void updateTest() {
-//    	
-//    }
 
 }

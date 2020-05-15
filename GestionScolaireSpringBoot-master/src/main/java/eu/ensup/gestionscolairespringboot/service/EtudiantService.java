@@ -7,16 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import eu.ensup.gestionscolairespringboot.dao.CoursRepository;
 import eu.ensup.gestionscolairespringboot.dao.DirectionRepository;
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
-import eu.ensup.gestionscolairespringboot.dao.PersonneRepository;
 import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Direction;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
-
-import eu.ensup.gestionscolairespringboot.domaine.Personne;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class EtudiantService implements IEtudiantService {
@@ -28,21 +21,10 @@ public class EtudiantService implements IEtudiantService {
 	private CoursRepository coursDAO;
 	@Autowired
 	private DirectionRepository directionDAO;
-	@Autowired
-	private PersonneRepository personneDAO;
 
 	// Constructeur par défault
 	public EtudiantService() {
 		super();
-	}
-
-	public EtudiantService(EtudiantRepository etudiantDAO, CoursRepository coursDAO, DirectionRepository directionDAO,
-			PersonneRepository personneDAO) {
-		super();
-		this.etudiantDAO = etudiantDAO;
-		this.coursDAO = coursDAO;
-		this.directionDAO = directionDAO;
-		this.personneDAO = personneDAO;
 	}
 
 	@Override
