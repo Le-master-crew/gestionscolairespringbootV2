@@ -26,3 +26,7 @@ Lancement de l'application :
 
 Swagger :
 Lorsque l'application est lancée aller sur : http://localhost:8080/swagger-ui.html#/
+
+Heroku :
+
+Cliquer sur le lien pour voir direct le site : https://gestionscolaire.herokuapp.com/getFormLogin
