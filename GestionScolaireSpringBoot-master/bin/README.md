@@ -1,2 +1,0 @@
-# gestionscolairespringboot
-Bonjour à tous
