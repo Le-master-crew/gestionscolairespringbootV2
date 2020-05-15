@@ -16,6 +16,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.ensup.gestionscolairespringboot.dao.EtudiantRepository;
+import eu.ensup.gestionscolairespringboot.domaine.Cours;
 import eu.ensup.gestionscolairespringboot.domaine.Etudiant;
 import eu.ensup.gestionscolairespringboot.service.EtudiantService;
 
@@ -78,27 +79,17 @@ class EtudiantServiceTest {
 
 		assertEquals(3, listEtu.size());
 	}
-
-	@Test
-    void getEtudiantByIdTest() {
-    	Etudiant etu =  new Etudiant();
-    	etu.setId(1);
-    	when(ietudiantdao.getOne(1)).thenReturn(etu);
-    	assertEquals(etu, etudiantService.getById(1));
-    	
-    }
-    
     
     @Test
     void lierCoursEtudiantTest() {
     	
     	Etudiant etu = new Etudiant();
-    	Cours cours = new Etudiant();
+    	Cours cours = new Cours();
     	
     	etu.setId(1);
-    	cours.setIdCours(2)
+    	cours.setIdCours(2);
     	
-    	when(ietudiantdao.existsById(1)).thenReturn(etu);
+    	when(ietudiantdao.existsById(1)).thenReturn(true);
     	when(icoursdao.existsById(2)).thenReturn(cours);
     	when(ietudiantdao.saveAndFlush(etu)).thenReturn(etu);
     	
