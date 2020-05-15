@@ -30,3 +30,7 @@ Lorsque l'application est lancée aller sur : http://localhost:8080/swagger-ui.h
 Heroku :
 
 Cliquer sur le lien pour voir direct le site : https://gestionscolaire.herokuapp.com/
+Vous pourrez vous connecter avec le compte admin
+
+  - identifiant : root
+  - mot de passe : root
