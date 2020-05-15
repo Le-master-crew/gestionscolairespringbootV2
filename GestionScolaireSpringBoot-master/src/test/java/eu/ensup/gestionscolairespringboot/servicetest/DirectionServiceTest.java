@@ -29,6 +29,7 @@ class DirectionServiceTest {
 											// l'initialisation des tests junit.
 	}
 
+	
 	@Test
 	void loginTest() {
 		Direction direction = new Direction();
