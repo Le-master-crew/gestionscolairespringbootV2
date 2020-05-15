@@ -71,7 +71,7 @@ Supprimer les ` car Postgre ne les accepte pas
 
 Heroku : 
 git pull
-heroku create  (pour creer l'application heroku)
+heroku create gestionscolaire(pour creer l'application heroku qui s'appelera gestionscolaire)
 git push heroku master (push sur heroku)
 heroku ps:scale web=1  (lecture du fichier Procfile)
 heroku open (ouvre l'application)
